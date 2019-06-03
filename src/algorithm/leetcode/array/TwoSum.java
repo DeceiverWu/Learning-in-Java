@@ -7,8 +7,6 @@ package algorithm.leetcode.array;
  * Date: 2019-06-03
  * Time: 18:49
  */
-
-import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -26,7 +24,7 @@ import java.util.Map;
  */
 public class TwoSum {
 
-    public int[] twoSum1(int[] num, int target){
+    public int[] twoSum(int[] num, int target){
         int[] result = new int[2];
         Map<Integer, Integer> map = new HashMap<>();
 
@@ -45,30 +43,4 @@ public class TwoSum {
         return result;
     }
 
-    public int[] twoSum2(int[] num, int target){
-        int len = num.length;
-        int[] arr = Arrays.copyOfRange(num,0, len);
-
-        Arrays.sort(arr);
-        for (int i = 0; i < len; i++){
-            int index = Arrays.binarySearch(arr, i + 1, len, target - arr[i]);
-            if (index >= 0){
-                int[] res = new int[2];
-                int count = 0;
-                for (int j = 0; j < len; j++){
-                    if (num[j]==arr[i]||num[j]==arr[index]){
-                        res[count]=j;
-                        count++;
-                        if (count == 2){
-                            break;
-                        }
-                    }
-                }
-                return res;
-            }
-        }
-        int[] res = {0, 0};
-        return res;
-
-    }
 }
