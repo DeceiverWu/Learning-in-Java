@@ -38,7 +38,6 @@ public class RangeSumofBST {
     }
 
     public int rangeSumBST(TreeNode root, int L, int R) {
-        // recurite stop
         if (root == null) return 0;
 
         // binary search DFS
@@ -50,7 +49,6 @@ public class RangeSumofBST {
     }
 
     public int rangeSumBST(TreeNode root, int L, int R) {
-        // recurite stop
         if (root == null) return 0;
         return ((L <= root.val && root.val <= R) ? root.val : 0) + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R);
     }
