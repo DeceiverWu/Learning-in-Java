@@ -48,7 +48,7 @@ public class RangeSumofBST {
         return sum;
     }
 
-    public int rangeSumBST(TreeNode root, int L, int R) {
+    public int rangeSumBST1(TreeNode root, int L, int R) {
         if (root == null) return 0;
         return ((L <= root.val && root.val <= R) ? root.val : 0) + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R);
     }

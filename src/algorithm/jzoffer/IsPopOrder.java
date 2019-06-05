@@ -32,7 +32,7 @@ public class IsPopOrder {
             return false;
         }
 
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack();
         for (int i = 0, j = 0; i < push.length;){
             stack.push(push[i++]);
             while (j < pop.length && stack.peek() == pop[j]){
