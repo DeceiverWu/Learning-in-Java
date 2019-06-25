@@ -70,7 +70,7 @@ public class ProxyTest {
     }
 
     public static Object getProxy(Object obj) throws Exception {
-        Object instance = Proxy.newProxyInstance(
+        Object instance     = Proxy.newProxyInstance(
                 obj.getClass().getClassLoader(),
                 obj.getClass().getInterfaces(),
                 new InvocationHandler() {
