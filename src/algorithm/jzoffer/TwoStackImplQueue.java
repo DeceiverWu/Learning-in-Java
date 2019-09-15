@@ -15,13 +15,13 @@ public class TwoStackImplQueue {
     Stack<Integer> stack1 = new Stack<>();
     Stack<Integer> stack2 = new Stack<>();
 
-    public void push(int e){
+    public void push(int e) {
         stack1.push(e);
     }
 
-    public int pop(){
-        if (stack2.size() <= 0){
-            while (stack1.size() > 0){
+    public int pop() {
+        if (stack2.size() <= 0) {
+            while (stack1.size() > 0) {
                 stack2.push(stack1.pop());
             }
         }

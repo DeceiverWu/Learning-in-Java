@@ -14,27 +14,27 @@ public class ReConstructBinaryTree {
         TreeNode left;
         TreeNode right;
 
-        TreeNode(int val){
+        TreeNode(int val) {
             this.val = val;
         }
     }
 
-    public TreeNode reConstructBinaryTree(int[] pre, int[] in){
-        if (pre == null || in == null || pre.length == 0 || in.length == 0){
+    public TreeNode reConstructBinaryTree(int[] pre, int[] in) {
+        if (pre == null || in == null || pre.length == 0 || in.length == 0) {
             return null;
         }
 
-        TreeNode root = reConstructBinaryTree(pre, 0, pre.length-1, in, 0, in.length-1);
+        TreeNode root = reConstructBinaryTree(pre, 0, pre.length - 1, in, 0, in.length - 1);
         return root;
     }
 
-    public TreeNode reConstructBinaryTree(int[] pre, int startPre, int endPre, int[] in, int startIn, int endIn){
-        if (startPre > endPre || startIn > endIn){
+    public TreeNode reConstructBinaryTree(int[] pre, int startPre, int endPre, int[] in, int startIn, int endIn) {
+        if (startPre > endPre || startIn > endIn) {
             return null;
         }
         TreeNode root = new TreeNode(pre[startPre]);
-        for (int i = startIn; i <= endIn; i++){
-            if (in[i] == pre[startPre]){
+        for (int i = startIn; i <= endIn; i++) {
+            if (in[i] == pre[startPre]) {
                 /**
                  * pre: {1, 2, 4, 7, 3, 5, 6, 8}
                  * in: {4, 7, 2, 1, 5, 3, 8, 6}
@@ -46,8 +46,8 @@ public class ReConstructBinaryTree {
                  *            那么，可以得到先序遍历中的左（右）子树范围 {i - 中序起点 + 先序根起点}
                  *            那么，右子树的起点就是 {i - 中序起点 + 先序根起点 + 1}
                  */
-                root.left = reConstructBinaryTree(pre, startPre+1, startPre+i-startIn, in, startIn, i-1);
-                root.right = reConstructBinaryTree(pre, i-startIn+startPre+1, endPre, in, i+1, endIn);
+                root.left = reConstructBinaryTree(pre, startPre + 1, startPre + i - startIn, in, startIn, i - 1);
+                root.right = reConstructBinaryTree(pre, i - startIn + startPre + 1, endPre, in, i + 1, endIn);
             }
         }
         return root;

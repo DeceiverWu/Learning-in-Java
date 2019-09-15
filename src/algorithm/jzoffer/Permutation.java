@@ -22,12 +22,12 @@ public class Permutation {
         return sorts;
     }
 
-    public void permutation(char[] str, int index, ArrayList<String> sorts){
-        if (index == str.length - 1){
+    public void permutation(char[] str, int index, ArrayList<String> sorts) {
+        if (index == str.length - 1) {
             String s = String.valueOf(str);
             sorts.add(s);
         } else {
-            for (int i = index; i < str.length; i++){
+            for (int i = index; i < str.length; i++) {
                 if (i == index || str[i] != str[index]) {
                     swap(str, index, i);
                     permutation(str, index + 1, sorts);
@@ -37,7 +37,7 @@ public class Permutation {
         }
     }
 
-    public void swap(char[] str, int i, int j){
+    public void swap(char[] str, int i, int j) {
         char tmp = str[i];
         str[i] = str[j];
         str[j] = tmp;

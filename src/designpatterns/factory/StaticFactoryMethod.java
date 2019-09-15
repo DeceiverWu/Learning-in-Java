@@ -13,7 +13,7 @@ public class StaticFactoryMethod {
         public void send();
     }
 
-    class  SmsSender implements Sender {
+    class SmsSender implements Sender {
 
         @Override
         public void send() {

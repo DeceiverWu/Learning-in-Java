@@ -27,11 +27,12 @@ public class CloneListNode {
 
     /**
      * 将克隆的结点先链接在被克隆结点后面 N - > N'
+     *
      * @param pHead
      */
     public void cloneNode(RandomListNode pHead) {
         RandomListNode pNode = pHead;
-        while (pNode != null){
+        while (pNode != null) {
             RandomListNode node = new RandomListNode(pNode.label);
             node.next = pNode.next;
             node.random = null;
@@ -42,11 +43,12 @@ public class CloneListNode {
 
     /**
      * 链接随机指针
+     *
      * @param pHead
      */
-    public void connectSiblingNode(RandomListNode pHead){
+    public void connectSiblingNode(RandomListNode pHead) {
         RandomListNode pNode = pHead;
-        while (pNode != null){
+        while (pNode != null) {
             RandomListNode node = pNode.next;
             if (pNode.random != null) {
                 node.random = pNode.random.next;
@@ -57,21 +59,22 @@ public class CloneListNode {
 
     /**
      * 将原链表从复制链表分离
+     *
      * @param pHead
      * @return
      */
-    public RandomListNode removeOriginNode(RandomListNode pHead){
+    public RandomListNode removeOriginNode(RandomListNode pHead) {
         RandomListNode pNode = pHead;
         RandomListNode cloneHead = null;
         RandomListNode cloneNode = null;
         //确定复制链表头
-        if (pNode != null){
+        if (pNode != null) {
             cloneHead = cloneNode = pNode.next;
             pNode.next = cloneHead.next;
             pNode = pNode.next;
         }
         //拆卸原链表和复制链表
-        while (pNode != null){
+        while (pNode != null) {
             cloneNode.next = pNode.next;
             cloneNode = cloneNode.next;
             pNode.next = cloneNode.next;

@@ -9,13 +9,13 @@ package algorithm.jzoffer;
  */
 public class ReverseList {
 
-    class ListNode{
+    class ListNode {
         int val;
         ListNode next = null;
     }
 
-    public ListNode reverseList(ListNode pHead){
-        if (pHead == null || pHead.next == null){
+    public ListNode reverseList(ListNode pHead) {
+        if (pHead == null || pHead.next == null) {
             return pHead;
         }
 
@@ -24,9 +24,9 @@ public class ReverseList {
         ListNode nextNode = null;
         ListNode preNode = null;
 
-        while (midNode != null){
+        while (midNode != null) {
             nextNode = midNode.next;
-            if (nextNode == null){
+            if (nextNode == null) {
                 newHead = midNode;
             }
 

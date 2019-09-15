@@ -12,25 +12,25 @@ import java.util.LinkedList;
  */
 public class PrintListFromTailToHead {
 
-    class ListNode{
+    class ListNode {
 
         int val;
         ListNode next = null;
 
-        ListNode(int val){
+        ListNode(int val) {
             this.val = val;
         }
     }
 
-    public ArrayList<Integer> printListFromTailToHead(ListNode listNode){
+    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         LinkedList<Integer> stack = new LinkedList<>();
-        while (listNode != null){
+        while (listNode != null) {
             stack.push(listNode.val);
             listNode = listNode.next;
         }
 
         ArrayList<Integer> arrayList = new ArrayList<>();
-        while (!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             arrayList.add(stack.pop());
         }
         return arrayList;

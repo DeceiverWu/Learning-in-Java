@@ -41,7 +41,7 @@ public class Dish {
         return type;
     }
 
-    public enum Type { MEAT, FISH, OTHER }
+    public enum Type {MEAT, FISH, OTHER}
 
     @Override
     public String toString() {

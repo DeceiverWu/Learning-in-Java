@@ -15,10 +15,10 @@ public class Singleton {
 
     }
 
-    public static final Singleton getInstance(){
-        if (instance == null){
-            synchronized (instance){
-                if (instance == null){
+    public static final Singleton getInstance() {
+        if (instance == null) {
+            synchronized (instance) {
+                if (instance == null) {
                     instance = new Singleton();
                 }
             }

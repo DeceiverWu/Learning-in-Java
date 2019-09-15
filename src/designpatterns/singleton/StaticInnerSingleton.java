@@ -17,7 +17,7 @@ public class StaticInnerSingleton {
 
     }
 
-    public static final StaticInnerSingleton getInstance(){
+    public static final StaticInnerSingleton getInstance() {
         return LazyHolder.INSTANCE;
     }
 }

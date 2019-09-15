@@ -15,20 +15,19 @@ public class FindInPartiallySortedMatrix {
      * 2  4  9  12
      * 4  7  10 13
      * 6  8  11 15
-     *
      */
-    public boolean find(int[][] matrix, int rows, int columns, int target){
+    public boolean find(int[][] matrix, int rows, int columns, int target) {
         if (matrix == null || rows < 0 || columns < 0)
             return false;
 
         boolean found = false;
-        while (matrix != null && rows > 0 && columns > 0){
-            if (matrix[rows][columns] == target){
+        while (matrix != null && rows > 0 && columns > 0) {
+            if (matrix[rows][columns] == target) {
                 found = true;
                 break;
-            }else if (matrix[rows][columns] > target){
+            } else if (matrix[rows][columns] > target) {
                 columns--;
-            }else {
+            } else {
                 rows++;
             }
         }

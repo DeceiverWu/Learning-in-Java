@@ -14,7 +14,7 @@ import java.util.Optional;
 public class Reducing {
 
     public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(3,4,5,1,2);
+        List<Integer> numbers = Arrays.asList(3, 4, 5, 1, 2);
         Integer sum = numbers.stream().reduce(0, (x, y) -> x + y);
         System.out.println(sum);
 

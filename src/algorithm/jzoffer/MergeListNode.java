@@ -9,25 +9,25 @@ package algorithm.jzoffer;
  */
 public class MergeListNode {
 
-    class ListNode{
+    class ListNode {
         int val;
         ListNode next = null;
 
-        ListNode(int val){
+        ListNode(int val) {
             this.val = val;
         }
     }
 
-    public ListNode merge(ListNode l1, ListNode l2){
-        if (l1 == null){
+    public ListNode merge(ListNode l1, ListNode l2) {
+        if (l1 == null) {
             return l2;
-        } else if (l2 == null){
+        } else if (l2 == null) {
             return l1;
         }
 
         ListNode pHead = null;
 
-        if (l1.val < l2.val){
+        if (l1.val < l2.val) {
             pHead = l1;
             pHead.next = merge(l1.next, l2);
         } else {

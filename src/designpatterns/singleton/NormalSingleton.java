@@ -16,7 +16,7 @@ public class NormalSingleton {
     }
 
     public static NormalSingleton getInstance() {
-        if (instance == null){
+        if (instance == null) {
             instance = new NormalSingleton();
         }
         return instance;

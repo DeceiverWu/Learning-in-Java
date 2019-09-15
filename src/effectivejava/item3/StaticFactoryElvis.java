@@ -11,7 +11,8 @@ public class StaticFactoryElvis {
 
     private static final StaticFactoryElvis INSTANCE = new StaticFactoryElvis();
 
-    private StaticFactoryElvis() { }
+    private StaticFactoryElvis() {
+    }
 
     public static StaticFactoryElvis getINSTANCE() {
         return INSTANCE;

@@ -19,7 +19,7 @@ public class FindPathByTargetSum {
 
     public ArrayList<ArrayList<Integer>> findPath(TreeNode root, int target) {
         ArrayList<ArrayList<Integer>> paths = new ArrayList<>();
-        if (root == null || target <= 0){
+        if (root == null || target <= 0) {
             return paths;
         }
         int currentSum = 0;
@@ -29,19 +29,19 @@ public class FindPathByTargetSum {
     }
 
     public void findPath(TreeNode root, ArrayList<ArrayList<Integer>> paths, int target,
-                         int currentSum, ArrayList<Integer> currentPath){
+                         int currentSum, ArrayList<Integer> currentPath) {
         currentSum += root.val;
         currentPath.add(root.val);
 
         boolean isLeaf = (root.left == null && root.right == null);
-        if (isLeaf && currentSum == target){
+        if (isLeaf && currentSum == target) {
             paths.add(new ArrayList<>(currentPath));
         }
 
-        if (root.left != null){
+        if (root.left != null) {
             findPath(root.left, paths, target, currentSum, currentPath);
         }
-        if (root.right != null){
+        if (root.right != null) {
             findPath(root.right, paths, target, currentSum, currentPath);
         }
         currentPath.remove(currentPath.size() - 1);

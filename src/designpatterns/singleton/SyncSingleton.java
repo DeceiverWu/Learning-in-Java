@@ -16,7 +16,7 @@ public class SyncSingleton {
     }
 
     public static synchronized SyncSingleton getInstance() {
-        if (instance == null){
+        if (instance == null) {
             instance = new SyncSingleton();
         }
         return instance;

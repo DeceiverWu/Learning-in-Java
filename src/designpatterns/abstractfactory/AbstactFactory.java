@@ -12,7 +12,7 @@ import org.junit.Test;
 public class AbstactFactory {
 
     @Test
-    public void test(){
+    public void test() {
         MailFactory mailFactory = new MailFactory();
         mailFactory.newSender().send();
 

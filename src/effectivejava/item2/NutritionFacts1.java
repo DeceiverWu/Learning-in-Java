@@ -57,11 +57,11 @@ public class NutritionFacts1 {
     }
 
     public NutritionFacts1(Builder builder) {
-        servingSize  = builder.servingSize;
-        servings     = builder.servings;
-        calories     = builder.calories;
-        fat          = builder.fat;
-        sodium       = builder.sodium;
+        servingSize = builder.servingSize;
+        servings = builder.servings;
+        calories = builder.calories;
+        fat = builder.fat;
+        sodium = builder.sodium;
         carbohydrate = builder.carbohydrate;
     }
 }

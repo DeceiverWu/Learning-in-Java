@@ -10,16 +10,16 @@ package algorithm.sort;
 public class MergeSort {
 
     private static void mergeSort(int[] arr) {
-        if(arr == null)
+        if (arr == null)
             return;
 
         int len = arr.length;
         int[] temp = new int[len];
-        sort(arr, 0, len -1, temp);
+        sort(arr, 0, len - 1, temp);
     }
 
     private static void sort(int[] arr, int left, int right, int[] temp) {
-        if(left < right) {
+        if (left < right) {
             int mid = (left + right) / 2;
             sort(arr, left, mid, temp);
             sort(arr, mid + 1, right, temp);
@@ -32,22 +32,22 @@ public class MergeSort {
         int index = left;
         int counts = right - left + 1;
 
-        while(left <= leftEnd && mid <= right){
-            if (arr[left] <= arr[mid]){
+        while (left <= leftEnd && mid <= right) {
+            if (arr[left] <= arr[mid]) {
                 temp[index++] = arr[left++];
-            }else{
+            } else {
                 temp[index++] = arr[mid++];
             }
         }
 
-        while(left <= leftEnd){
+        while (left <= leftEnd) {
             temp[index++] = arr[left++];
         }
-        while(mid <= right){
+        while (mid <= right) {
             temp[index++] = arr[mid++];
         }
 
-        for(int i = 0; i < counts; i++, right--){
+        for (int i = 0; i < counts; i++, right--) {
             arr[right] = temp[right];
         }
 

@@ -10,15 +10,15 @@ package algorithm.leetcode.math;
 
 /**
  * Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.
- *
+ * <p>
  * Return the quotient after dividing dividend by divisor.
- *
+ * <p>
  * The integer division should truncate toward zero.
- *
+ * <p>
  * Example 1:
  * Input: dividend = 10, divisor = 3
  * Output: 3
- *
+ * <p>
  * Example 2:
  * Input: dividend = 7, divisor = -3
  * Output: -2

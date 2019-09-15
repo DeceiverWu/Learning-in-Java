@@ -9,26 +9,26 @@ package algorithm.string;
  */
 public class ViolentStringMatcher {
 
-    public static int indexOf(String source, String pattern){
+    public static int indexOf(String source, String pattern) {
         int i = 0, j = 0;
         int sLen = source.length(), pLen = pattern.length();
         char[] src = source.toCharArray();
         char[] ptn = pattern.toCharArray();
 
-        while (i < sLen && j < pLen){
-            if (src[i] == ptn[j]){
+        while (i < sLen && j < pLen) {
+            if (src[i] == ptn[j]) {
                 i++;
                 j++;
-            }else{
+            } else {
                 // 如果当前字符匹配不成功,则i回溯到此次匹配最开始的位置+1处,也就是i = i - j + 1
                 i = i - j + 1;
                 j = 0;
             }
         }
 
-        if (j == pLen){
+        if (j == pLen) {
             return i - j;
-        }else {
+        } else {
             return -1;
         }
     }

@@ -16,7 +16,7 @@ public class StackIncludMinFunc {
 
     public void push(int node) {
         datas.push(node);
-        if (min.size() == 0 || min.peek() > node){
+        if (min.size() == 0 || min.peek() > node) {
             min.push(node);
         } else {
             min.push(min.peek());
@@ -24,7 +24,7 @@ public class StackIncludMinFunc {
     }
 
     public void pop() {
-        if (datas.size() > 0 && min.size() > 0){
+        if (datas.size() > 0 && min.size() > 0) {
             datas.pop();
             min.pop();
         }

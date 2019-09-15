@@ -9,14 +9,14 @@ package algorithm.jzoffer;
  */
 public class MirrorRecursively {
 
-    class TreeNode{
+    class TreeNode {
         int val;
         TreeNode left = null;
         TreeNode right = null;
     }
 
-    public void mirror(TreeNode root){
-        if (root == null || (root.left == null && root.right == null)){
+    public void mirror(TreeNode root) {
+        if (root == null || (root.left == null && root.right == null)) {
             return;
         }
 
@@ -24,10 +24,10 @@ public class MirrorRecursively {
         root.left = root.right;
         root.right = tmp;
 
-        if (root.left != null){
+        if (root.left != null) {
             mirror(root.left);
         }
-        if (root.right != null){
+        if (root.right != null) {
             mirror(root.right);
         }
     }

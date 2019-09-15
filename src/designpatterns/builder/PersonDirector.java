@@ -11,7 +11,7 @@ import designpatterns.common.Person;
  */
 public class PersonDirector {
 
-    public Person constructPerson(PersonBuilder pb){
+    public Person constructPerson(PersonBuilder pb) {
         pb.buildHead();
         pb.buildBody();
         pb.buildFoot();

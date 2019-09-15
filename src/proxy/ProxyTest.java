@@ -21,7 +21,7 @@ public class ProxyTest {
     public static void proxyMethodOne() throws Exception {
         Class<?> proxyClass = Proxy.getProxyClass(Calculator.class.getClassLoader(), Calculator.class);
         Constructor<?> proxyClassConstructor = proxyClass.getConstructor(InvocationHandler.class);
-        Calculator proxyCalculator = (Calculator)proxyClassConstructor.newInstance(new InvocationHandler() {
+        Calculator proxyCalculator = (Calculator) proxyClassConstructor.newInstance(new InvocationHandler() {
 
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
@@ -65,13 +65,13 @@ public class ProxyTest {
 
     public static void proxyMethodThree() throws Exception {
         Calculator calculator = new CalculatorImpl();
-        Calculator proxy = (Calculator)getProxy(calculator);
+        Calculator proxy = (Calculator) getProxy(calculator);
         proxy.add(1, 2);
 
     }
 
     public static Object getProxy(Object obj) throws Exception {
-        Object instance     = Proxy.newProxyInstance(
+        Object instance = Proxy.newProxyInstance(
                 obj.getClass().getClassLoader(),
                 obj.getClass().getInterfaces(),
                 new InvocationHandler() {

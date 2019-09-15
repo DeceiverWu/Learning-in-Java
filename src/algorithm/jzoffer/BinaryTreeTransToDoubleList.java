@@ -18,26 +18,26 @@ public class BinaryTreeTransToDoubleList {
     private TreeNode lastNode = null;
 
     public TreeNode convert(TreeNode root) {
-        if (root == null){
+        if (root == null) {
             return null;
-        } else if (root.left == null && root.right == null){
+        } else if (root.left == null && root.right == null) {
             return root;
         }
 
         TreeNode left = convert(root.left);
         TreeNode pNode = left;
-        while (pNode != null && pNode.right != null){
+        while (pNode != null && pNode.right != null) {
             pNode = pNode.right;
         }
 
-        if (left != null){
+        if (left != null) {
             pNode.right = root;
             root.left = pNode;
         }
 
         TreeNode right = convert(root.right);
 
-        if (right != null){
+        if (right != null) {
             right.left = root;
             root.right = right;
         }
@@ -45,10 +45,10 @@ public class BinaryTreeTransToDoubleList {
     }
 
     // 记录子树链表的最后一个节点，终结点只可能为只含左子树的非叶节点与叶节点
-    public TreeNode convert2(TreeNode root){
-        if (root == null){
+    public TreeNode convert2(TreeNode root) {
+        if (root == null) {
             return null;
-        } else if (root.left == null && root.right == null){
+        } else if (root.left == null && root.right == null) {
             // 最后的一个节点可能为最右侧的叶节点
             lastNode = root;
             return root;
@@ -56,7 +56,7 @@ public class BinaryTreeTransToDoubleList {
         // 1.将左子树构造成双链表，并返回链表头节点
         TreeNode left = convert2(root.left);
         // 3.如果左子树链表不为空的话，将当前root追加到左子树链表
-        if (left != null){
+        if (left != null) {
             lastNode.right = root;
             root.left = lastNode;
         }
@@ -65,7 +65,7 @@ public class BinaryTreeTransToDoubleList {
         // 4.将右子树构造成双链表，并返回链表头节点
         TreeNode right = convert2(root.right);
         // 5.如果右子树链表不为空的话，将该链表追加到root节点之后
-        if (right != null){
+        if (right != null) {
             right.left = root;
             root.right = right;
         }

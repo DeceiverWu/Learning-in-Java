@@ -12,8 +12,12 @@ import designpatterns.common.Computer;
 public interface ComputerBuilder {
 
     void buildCpu();
+
     void buildHd();
+
     void buildRam();
+
     void buildBios();
+
     Computer buildComputer();
 }

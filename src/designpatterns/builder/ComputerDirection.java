@@ -11,7 +11,7 @@ import designpatterns.common.Computer;
  */
 public class ComputerDirection {
 
-    public Computer buildComputer(ComputerBuilder builder){
+    public Computer buildComputer(ComputerBuilder builder) {
         builder.buildCpu();
         builder.buildHd();
         builder.buildBios();

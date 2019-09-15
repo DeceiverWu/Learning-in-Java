@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class Mapping {
 
 
-    public static void main(String...args){
+    public static void main(String... args) {
 
         // map
         List<String> dishNames = DishUtils.menu.stream()
@@ -39,8 +39,8 @@ public class Mapping {
                 .forEach(System.out::println);
 
         // flatMap
-        List<Integer> numbers1 = Arrays.asList(1,2,3,4,5);
-        List<Integer> numbers2 = Arrays.asList(6,7,8);
+        List<Integer> numbers1 = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> numbers2 = Arrays.asList(6, 7, 8);
         List<int[]> pairs =
                 numbers1.stream()
                         .flatMap((Integer i) -> numbers2.stream()

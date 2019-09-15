@@ -11,9 +11,10 @@ public class KMPStringMatcher {
 
     /**
      * 取KMP算法中pattern字符串对应的next数组
+     *
      * @return
      */
-    private static int[] getNext(char[] p){
+    private static int[] getNext(char[] p) {
         /**
          * 已知next[j] = k,利用递归的思想求出next[j+1]的值
          * 如果已知next[j] = k,如何求出next[j+1]呢?具体算法如下:
@@ -29,30 +30,30 @@ public class KMPStringMatcher {
         int k = -1;
         int j = 0;
         next[0] = -1;
-        while (j < pLen - 1){
-            if (k == -1 || p[k] == p[j]){
+        while (j < pLen - 1) {
+            if (k == -1 || p[k] == p[j]) {
                 k++;
                 j++;
                 next[j] = k;
-            }else {
+            } else {
                 k = next[j];
             }
         }
         return next;
     }
 
-    public static int indexOf(String source, String pattern){
+    public static int indexOf(String source, String pattern) {
         int i = 0, j = 0;
         int slen = source.length();
         int plen = pattern.length();
         char[] src = source.toCharArray();
         char[] ptn = pattern.toCharArray();
         int[] next = getNext(ptn);
-        while (i < slen && j < plen){
-            if (j == -1 || src[i] == ptn[j]){
+        while (i < slen && j < plen) {
+            if (j == -1 || src[i] == ptn[j]) {
                 i++;
                 j++;
-            }else {
+            } else {
                 // 如果j!=-1且当前字符匹配失败,则令i不变,j=next[j],即让pattern模式串右移j-next[j]个单位
                 j = next[j];
             }

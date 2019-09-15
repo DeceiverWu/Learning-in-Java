@@ -24,7 +24,7 @@ public class Point {
         if (!(o instanceof Point)) {
             return false;
         }
-        Point p = (Point)o;
+        Point p = (Point) o;
         return p.x == x && p.y == y;
     }
 

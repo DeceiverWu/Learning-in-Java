@@ -9,23 +9,23 @@ package algorithm.string;
  */
 public class OptimitKMPStringMatcher {
 
-    private static int[] getNext(char[] p){
+    private static int[] getNext(char[] p) {
         int i = 0, k = -1;
         int len = p.length;
         int[] next = new int[len];
         next[0] = -1;
 
-        while (i < len - 1){
-            if(k == -1 || p[i] == p[k]){
+        while (i < len - 1) {
+            if (k == -1 || p[i] == p[k]) {
                 ++k;
                 ++i;
 
-                if (p[i] != p[k]){
+                if (p[i] != p[k]) {
                     next[i] = k;
-                }else {
+                } else {
                     next[i] = next[k];
                 }
-            }else {
+            } else {
                 k = next[k];
             }
         }

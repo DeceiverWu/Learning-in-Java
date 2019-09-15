@@ -13,7 +13,7 @@ import java.util.LinkedList;
  */
 public class PrintBTreeFromTopToBottom {
 
-    class TreeNode{
+    class TreeNode {
         int val;
         TreeNode left = null;
         TreeNode right = null;
@@ -21,6 +21,7 @@ public class PrintBTreeFromTopToBottom {
 
     /**
      * 从上往下打印出二叉树的每个节点，同层节点从左至右打印。
+     *
      * @param root
      * @return
      */
@@ -32,14 +33,14 @@ public class PrintBTreeFromTopToBottom {
         Deque<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
             pList.add(node.val);
 
-            if (node.left != null){
+            if (node.left != null) {
                 queue.add(node.left);
             }
-            if (node.right != null){
+            if (node.right != null) {
                 queue.add(node.right);
             }
         }

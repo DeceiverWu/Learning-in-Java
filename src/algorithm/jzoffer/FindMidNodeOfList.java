@@ -9,32 +9,32 @@ package algorithm.jzoffer;
  */
 public class FindMidNodeOfList {
 
-    class ListNode{
+    class ListNode {
         int val;
         ListNode next = null;
 
-        ListNode(int val){
+        ListNode(int val) {
             this.val = val;
         }
     }
 
     /**
      * 求链表的中间结点
-     *
+     * <p>
      * 两个指针，一个一步，一个两步，两步的到尾，那么一步的就到中间了
      *
      * @param pHead
      * @return
      */
-    public ListNode finMidNodeOfList(ListNode pHead){
-        if (pHead == null){
+    public ListNode finMidNodeOfList(ListNode pHead) {
+        if (pHead == null) {
             return null;
         }
 
         ListNode p1 = pHead;
         ListNode p2 = pHead;
 
-        while (p2.next != null){
+        while (p2.next != null) {
             p1 = p1.next;
             p2 = p2.next.next;
         }
@@ -42,19 +42,19 @@ public class FindMidNodeOfList {
     }
 
 
-    public boolean isCycle(ListNode pHead){
-        if (pHead == null){
+    public boolean isCycle(ListNode pHead) {
+        if (pHead == null) {
             return false;
         }
 
         ListNode pre = pHead;
         ListNode tail = pHead;
 
-        while (pre.next != null){
+        while (pre.next != null) {
             pre = pre.next.next;
             tail = tail.next;
 
-            if (pre == tail){
+            if (pre == tail) {
                 return true;
             }
         }

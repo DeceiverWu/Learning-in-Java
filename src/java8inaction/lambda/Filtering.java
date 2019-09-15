@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * Time: 17:43
  */
 public class Filtering {
-    public static void main(String...args){
+    public static void main(String... args) {
 
         // Filtering with predicate
         List<Dish> vegetarianMenu =

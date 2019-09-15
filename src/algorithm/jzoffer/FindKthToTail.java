@@ -9,25 +9,25 @@ package algorithm.jzoffer;
  */
 public class FindKthToTail {
 
-    class ListNode{
+    class ListNode {
         int val;
         ListNode next = null;
 
-        ListNode(int val){
+        ListNode(int val) {
             this.val = val;
         }
     }
 
-    public ListNode findKthToTail(ListNode pHead, int k){
-        if (pHead == null || k <= 0 || k > Integer.MAX_VALUE){
+    public ListNode findKthToTail(ListNode pHead, int k) {
+        if (pHead == null || k <= 0 || k > Integer.MAX_VALUE) {
             return null;
         }
 
         ListNode p1 = pHead;
         ListNode p2 = null;
 
-        for (int i = 0; i < k - 1; i++){
-            if (p1.next != null){
+        for (int i = 0; i < k - 1; i++) {
+            if (p1.next != null) {
                 p1 = p1.next;
             } else {
                 // 说明链表根本没有那么长
@@ -36,7 +36,7 @@ public class FindKthToTail {
         }
 
         p2 = pHead;
-        while (p1.next != null){
+        while (p1.next != null) {
             p1 = p1.next;
             p2 = p2.next;
         }

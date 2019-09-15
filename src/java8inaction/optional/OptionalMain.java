@@ -24,9 +24,9 @@ public class OptionalMain {
 
     public String getCarInsuranceName(Optional<Person> person, int minAge) {
         return person.filter(p -> p.getAge() >= minAge)
-                    .flatMap(Person::getCar)
-                    .flatMap(Car::getInsurance)
-                    .map(Insurance::getName)
-                    .orElse("UnKnown");
+                .flatMap(Person::getCar)
+                .flatMap(Car::getInsurance)
+                .map(Insurance::getName)
+                .orElse("UnKnown");
     }
 }

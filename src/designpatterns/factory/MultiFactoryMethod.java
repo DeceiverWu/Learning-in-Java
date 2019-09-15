@@ -13,7 +13,7 @@ public class MultiFactoryMethod {
         public void send();
     }
 
-    private class  SmsSender implements Sender {
+    private class SmsSender implements Sender {
 
         @Override
         public void send() {

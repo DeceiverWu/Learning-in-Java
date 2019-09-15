@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class PrintMatrixClockwisely {
 
 
-    public ArrayList<Integer> printMatrix(int[][] matrix){
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0){
+    public ArrayList<Integer> printMatrix(int[][] matrix) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             return null;
         }
 
@@ -23,35 +23,38 @@ public class PrintMatrixClockwisely {
         int row = 0;
         int column = 0;
 
-        while (row <= rows && column <= columns){
+        while (row <= rows && column <= columns) {
             // left -> right
-            for (int i = column; i <= columns; i++){
+            for (int i = column; i <= columns; i++) {
                 list.add(matrix[row][i]);
             }
 
             // top -> bottom
-            if (row < rows){
-                for (int i = row + 1; i <= rows; i++){
+            if (row < rows) {
+                for (int i = row + 1; i <= rows; i++) {
                     list.add(matrix[i][columns]);
                 }
             }
 
             // right -> left
-            if (column < columns && row < rows){
-                for (int i = columns - 1; i >= column; i--){
+            if (column < columns && row < rows) {
+                for (int i = columns - 1; i >= column; i--) {
                     list.add(matrix[rows][i]);
                 }
             }
 
             // bottom -> top
-            if (row < rows && column < columns){
-                for (int i = rows - 1; i >= row + 1; i--){
+            if (row < rows && column < columns) {
+                for (int i = rows - 1; i >= row + 1; i--) {
                     list.add(matrix[i][column]);
                 }
             }
 
             // Reduce the clockwise range
-            row++; column++; columns--; rows--;
+            row++;
+            column++;
+            columns--;
+            rows--;
         }
         return list;
     }

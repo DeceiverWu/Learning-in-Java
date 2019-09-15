@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class AlgorithmUtils {
 
-    private AlgorithmUtils(){
+    private AlgorithmUtils() {
 
     }
 
@@ -23,7 +23,7 @@ public class AlgorithmUtils {
     public static int[] getRandomArray() {
         Random random = new Random();
         int[] arr = new int[10];
-        for(int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {
             arr[i] = random.nextInt(100);
         }
         return arr;

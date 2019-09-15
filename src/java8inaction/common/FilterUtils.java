@@ -15,7 +15,8 @@ import java.util.function.Predicate;
  */
 public class FilterUtils {
 
-    private FilterUtils() {}
+    private FilterUtils() {
+    }
 
     // Predicate
     public static <T> List<T> filter(List<T> inventory, Predicate<T> p) {
@@ -38,8 +39,8 @@ public class FilterUtils {
     }
 
     // Consumer
-    public static <T> void forEach(List<T> list, Consumer<T> c){
-        for(T t: list){
+    public static <T> void forEach(List<T> list, Consumer<T> c) {
+        for (T t : list) {
             c.accept(t);
         }
     }
