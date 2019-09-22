@@ -19,24 +19,24 @@ public class ReConstructBinaryTree {
         }
     }
 
-    public TreeNode reConstructBinaryTree(int[] pre, int[] in) {
-        if (pre == null || in == null || pre.length == 0 || in.length == 0) {
+    public TreeNode reConstructBinaryTree(int[] preorder, int[] inorder) {
+        if (preorder == null || inorder == null || preorder.length == 0 || inorder.length == 0) {
             return null;
         }
 
-        TreeNode root = reConstructBinaryTree(pre, 0, pre.length - 1, in, 0, in.length - 1);
+        TreeNode root = reConstructBinaryTree(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
         return root;
     }
 
-    public TreeNode reConstructBinaryTree(int[] pre, int startPre, int endPre, int[] in, int startIn, int endIn) {
-        if (startPre > endPre || startIn > endIn) {
+    public TreeNode reConstructBinaryTree(int[] preorder, int startpreorder, int endpreorder, int[] inorder, int startIn, int endIn) {
+        if (startpreorder > endpreorder || startIn > endIn) {
             return null;
         }
-        TreeNode root = new TreeNode(pre[startPre]);
+        TreeNode root = new TreeNode(preorder[startpreorder]);
         for (int i = startIn; i <= endIn; i++) {
-            if (in[i] == pre[startPre]) {
+            if (inorder[i] == preorder[startpreorder]) {
                 /**
-                 * pre: {1, 2, 4, 7, 3, 5, 6, 8}
+                 * preorder: {1, 2, 4, 7, 3, 5, 6, 8}
                  * in: {4, 7, 2, 1, 5, 3, 8, 6}
                  *
                  * 从二叉树的性质来看，若以中序遍历的任意节点 i 为根节点，那么0 ~ (i-1)都是其左子树的节点，同理大于i的所有节点皆为其右子树节点。
@@ -46,8 +46,8 @@ public class ReConstructBinaryTree {
                  *            那么，可以得到先序遍历中的左（右）子树范围 {i - 中序起点 + 先序根起点}
                  *            那么，右子树的起点就是 {i - 中序起点 + 先序根起点 + 1}
                  */
-                root.left = reConstructBinaryTree(pre, startPre + 1, startPre + i - startIn, in, startIn, i - 1);
-                root.right = reConstructBinaryTree(pre, i - startIn + startPre + 1, endPre, in, i + 1, endIn);
+                root.left = reConstructBinaryTree(preorder, startpreorder + 1, startpreorder + i - startIn, inorder, startIn, i - 1);
+                root.right = reConstructBinaryTree(preorder, i - startIn + startpreorder + 1, endpreorder, inorder, i + 1, endIn);
             }
         }
         return root;
