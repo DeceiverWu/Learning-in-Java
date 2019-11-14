@@ -20,7 +20,7 @@ public class BasicSort {
 
         int index = 0;
         for (int i = 0; i < bucket.length; i++) {
-            if (bucket[i] > 0) {
+            while (bucket[i] > 0) {
                 arr[index++] = i;
                 bucket[i]--;
             }

@@ -44,4 +44,19 @@ public class TwoSum {
         return result;
     }
 
+    public int[] twoSum1(int[] nums, int target) {
+        int[] list = new int[4096];
+        int[] result = new int[2];
+        int key;
+        for(int i = 0; i < nums.length; i++) {
+            int tmp = target - nums[i];
+            key = tmp & 4095;
+            if (list[key] != 0) {
+                return new int[] {list[key] - 1, i};
+            }
+            list[nums[i] & 4095] = i + 1;
+        }
+        return result;
+    }
+
 }
