@@ -11,7 +11,7 @@ public class HeapSort {
 
     private static void adjHeap(int[] arr, int k, int len) {
         int temp = arr[k];
-        for (int i = 2 * k + 1; i < len; i = 2 * i + 1) {
+        for (int i = 2 * k; i < len; i = 2 * i) {
             if ((i + 1) < len && arr[i + 1] > arr[i]) {
                 i++;
             }
