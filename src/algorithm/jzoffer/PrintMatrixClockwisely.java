@@ -19,41 +19,41 @@ public class PrintMatrixClockwisely {
 
         ArrayList<Integer> list = new ArrayList<>();
         int rows = matrix.length - 1;
-        int columns = matrix[0].length - 1;
+        int cols = matrix[0].length - 1;
         int row = 0;
-        int column = 0;
+        int col = 0;
 
-        while (row <= rows && column <= columns) {
+        while (row <= rows && col <= cols) {
             // left -> right
-            for (int i = column; i <= columns; i++) {
+            for (int i = col; i <= cols; i++) {
                 list.add(matrix[row][i]);
             }
 
             // top -> bottom
             if (row < rows) {
                 for (int i = row + 1; i <= rows; i++) {
-                    list.add(matrix[i][columns]);
+                    list.add(matrix[i][cols]);
                 }
             }
 
             // right -> left
-            if (column < columns && row < rows) {
-                for (int i = columns - 1; i >= column; i--) {
+            if (col < cols && row < rows) {
+                for (int i = cols - 1; i >= col; i--) {
                     list.add(matrix[rows][i]);
                 }
             }
 
             // bottom -> top
-            if (row < rows && column < columns) {
+            if (row < rows && col < cols) {
                 for (int i = rows - 1; i >= row + 1; i--) {
-                    list.add(matrix[i][column]);
+                    list.add(matrix[i][col]);
                 }
             }
 
             // Reduce the clockwise range
             row++;
-            column++;
-            columns--;
+            col++;
+            cols--;
             rows--;
         }
         return list;

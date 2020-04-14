@@ -16,19 +16,18 @@ public class MirrorRecursively {
     }
 
     public void mirror(TreeNode root) {
-        if (root == null || (root.left == null && root.right == null)) {
+        if (root == null)
             return;
-        }
 
-        TreeNode tmp = root.left;
-        root.left = root.right;
-        root.right = tmp;
+        swap(root);
 
-        if (root.left != null) {
-            mirror(root.left);
-        }
-        if (root.right != null) {
-            mirror(root.right);
-        }
+        mirror(root.left);
+        mirror(root.right);
+    }
+
+    private void swap(TreeNode node) {
+        TreeNode t = node.left;
+        node.left = node.right;
+        node.right = t;
     }
 }

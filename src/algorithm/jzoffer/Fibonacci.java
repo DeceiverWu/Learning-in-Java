@@ -9,6 +9,19 @@ package algorithm.jzoffer;
  */
 public class Fibonacci {
 
+    private int[] fib = new int[1024];
+
+    public Fibonacci() {
+        fib[1] = 1;
+        for (int i = 2; i <= fib.length; i++) {
+            fib[i] = fib[i-1] + fib[i-2];
+        }
+    }
+
+    public int getFibonacci(int n) {
+        return fib[n];
+    }
+
     public int fibonacci(int n) {
         if (n <= 0) {
             return 0;
@@ -27,6 +40,17 @@ public class Fibonacci {
         }
 
         return (int) result;
+    }
+
+    public int fibonacci1(int n) {
+        if (n <= 1)
+            return n;
+        int[] fib1 = new int[n + 1];
+        fib1[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            fib1[i] = fib1[i-1] + fib1[i-2];
+        }
+        return fib1[n];
     }
 
     /**

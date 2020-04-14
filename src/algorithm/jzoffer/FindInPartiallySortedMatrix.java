@@ -33,4 +33,25 @@ public class FindInPartiallySortedMatrix {
         }
         return found;
     }
+
+    public boolean find1(int[][] matrix, int target) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0)
+            return false;
+
+        int rows = matrix.length;
+        int cols = matrix[0].length -1;
+        int r = 0;
+        boolean found = false;
+        while (r <= rows - 1 && cols >= 0) {
+            if (matrix[r][cols] == target) {
+                found = true;
+                break;
+            } else if (matrix[r][cols] > target) {
+                cols--;
+            } else {
+                r++;
+            }
+        }
+        return found;
+    }
 }

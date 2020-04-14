@@ -49,6 +49,24 @@ public class MoreThanHalfNum {
         return result;
     }
 
+    public int moreThanHalfNum_Solution(int[] nums) {
+        int key = nums[0];
+        for (int i = 1, cnt = 1; i < nums.length; i++) {
+            cnt = key == nums[i] ? cnt + 1 : cnt - 1;
+            if (cnt == 0) {
+                key = nums[i];
+                cnt = 1;
+            }
+        }
+        int cnt = 0;
+        for (int num : nums) {
+            if (num == key)
+                cnt += 1;
+        }
+        return cnt > nums.length / 2 ? key : 0;
+    }
+
+
     public static void main(String[] args) {
         MoreThanHalfNum halfNum = new MoreThanHalfNum();
         int num = halfNum.moreThanHalfNum(new int[]{1, 2, 3, 2, 2, 2, 5, 4, 2});

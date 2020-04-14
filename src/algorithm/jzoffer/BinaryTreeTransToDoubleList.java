@@ -71,4 +71,5 @@ public class BinaryTreeTransToDoubleList {
         }
         return left != null ? left : root;
     }
+
 }

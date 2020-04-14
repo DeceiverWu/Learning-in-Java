@@ -2,6 +2,8 @@ package algorithm.jzoffer;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -45,7 +47,10 @@ public class Permutation {
 
     public static void main(String[] args) {
         Permutation permutation = new Permutation();
-        ArrayList<String> ab = permutation.permutation("ab");
+        ArrayList<String> ab = permutation.permutation("abcdefg");
         System.out.println(ab.toString());
+        System.out.println(ab.size());
+        Set<String> set = new HashSet<>(ab);
+        System.out.println(set.size());
     }
 }

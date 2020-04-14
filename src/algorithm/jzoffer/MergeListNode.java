@@ -19,22 +19,37 @@ public class MergeListNode {
     }
 
     public ListNode merge(ListNode l1, ListNode l2) {
-        if (l1 == null) {
+        if (l1 == null)
             return l2;
-        } else if (l2 == null) {
+        if (l2 == null)
             return l1;
-        }
 
-        ListNode pHead = null;
-
-        if (l1.val < l2.val) {
-            pHead = l1;
-            pHead.next = merge(l1.next, l2);
+        if (l1.val <= l2.val) {
+            l1.next = merge(l1.next, l2);
+            return l1;
         } else {
-            pHead = l2;
-            pHead.next = merge(l1, l2.next);
+            l2.next = merge(l1, l2.next);
+            return l2;
         }
+    }
 
-        return pHead;
+    public ListNode merge1(ListNode l1, ListNode l2) {
+        ListNode head = new ListNode(-1);
+        ListNode cur = head;
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                cur.next = l1;
+                l1 = l1.next;
+            } else {
+                cur.next = l2;
+                l2 = l2.next;
+            }
+            cur = cur.next;
+        }
+        if (l1 != null)
+            cur.next = l1;
+        if (l2 != null)
+            cur.next = l2;
+        return head.next;
     }
 }
