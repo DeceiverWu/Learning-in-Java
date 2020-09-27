@@ -21,26 +21,19 @@ public class ReverseList {
     }
 
     public ListNode reverseList(ListNode pHead) {
-        if (pHead == null || pHead.next == null) {
-            return pHead;
+        if (pHead == null || pHead.next == null) return pHead;
+
+        ListNode cur = pHead;
+        ListNode pre = null;
+        ListNode next = null;
+        while (cur.next != null) {
+            next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
         }
-
-        ListNode newHead = null;
-        ListNode midNode = pHead;
-        ListNode nextNode = null;
-        ListNode preNode = null;
-
-        while (midNode != null) {
-            nextNode = midNode.next;
-            if (nextNode == null) {
-                newHead = midNode;
-            }
-
-            midNode.next = preNode;
-            preNode = midNode;
-            midNode = nextNode;
-        }
-        return newHead;
+        cur.next = pre;
+        return cur;
     }
 
     public ListNode printReverseList(ListNode node) {

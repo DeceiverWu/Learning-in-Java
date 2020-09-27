@@ -38,18 +38,12 @@ public class SumofRootToLeafBinaryNumbers {
     }
 
     public int sumRootToLeaf(TreeNode root) {
-        return getSumForAllRootToLeaf(root, 0, 0);
+        return dfs(root, 0);
     }
 
-    public int getSumForAllRootToLeaf(TreeNode root, int total, int curSum) {
-        if (root == null) return total;
-
-        curSum = curSum * 2 + root.val;
-        if (root.left == null && root.right == null) {
-            total += curSum;
-            return total;
-        }
-        total = getSumForAllRootToLeaf(root.left, total, curSum);
-        return getSumForAllRootToLeaf(root.right, total, curSum);
+    public int dfs(TreeNode root, int val) {
+        if (root == null) return 0;
+        val = val * 2 + root.val;
+        return root.left == root.right ? val : dfs(root.left, val) + dfs(root.right, val);
     }
 }

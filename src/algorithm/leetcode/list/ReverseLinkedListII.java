@@ -1,0 +1,76 @@
+package algorithm.leetcode.list;
+
+/**
+ * Reverse a linked list from position m to n. Do it in one-pass.
+ *
+ * Note: 1 ≤ m ≤ n ≤ length of list.
+ *
+ * Example:
+ *
+ * Input: 1->2->3->4->5->NULL, m = 2, n = 4
+ * Output: 1->4->3->2->5->NULL
+ *
+ */
+public class ReverseLinkedListII {
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        public ListNode() { }
+        public ListNode(int val) {
+            this.val = val;
+        }
+        public ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+
+    public ListNode reverseBetween(ListNode head, int m, int n) {
+        if (head == null) return null;
+        int count = n - m;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+
+        for (int i = 0; i < m - 1; i++) pre = pre.next;
+
+        ListNode cur = pre.next;
+        ListNode next = cur.next;
+        for (int i = 0; i < count; i++) {
+            cur.next = next.next;   // cur.next作为下一结点的存储指针
+            next.next = pre.next;
+            pre.next = next;
+            next = cur.next;
+        }
+        return dummy.next;
+    }
+
+    public ListNode reverseBetweenO(ListNode head, int m, int n) {
+        if(head == null) return null;
+        ListNode dummy = new ListNode(0); // create a dummy node to mark the head of this list
+        dummy.next = head;
+        ListNode pre = dummy; // make a pointer pre as a marker for the node before reversing
+        for(int i = 0; i<m-1; i++) pre = pre.next;
+
+        ListNode start = pre.next; // a pointer to the beginning of a sub-list that will be reversed
+        ListNode cur = start.next; // a pointer to a node that will be reversed
+
+        // 1 - 2 -3 - 4 - 5 ; m=2; n =4 ---> pre = 1, start = 2, then = 3
+        // dummy-> 1 -> 2 -> 3 -> 4 -> 5
+
+        for(int i=0; i<n-m; i++)
+        {
+            start.next = cur.next;
+            cur.next = pre.next;
+            pre.next = cur;
+            cur = start.next;
+        }
+
+        // first reversing : dummy->1 - 3 - 2 - 4 - 5; pre = 1, start = 2, then = 4
+        // second reversing: dummy->1 - 4 - 3 - 2 - 5; pre = 1, start = 2, then = 5 (finish)
+
+        return dummy.next;
+
+    }
+}

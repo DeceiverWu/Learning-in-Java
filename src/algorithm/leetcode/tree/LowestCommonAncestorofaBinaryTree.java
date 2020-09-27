@@ -1,5 +1,8 @@
 package algorithm.leetcode.tree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
  *
@@ -39,5 +42,51 @@ public class LowestCommonAncestorofaBinaryTree {
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
         return left == null ? right : right == null ? left : root;
+    }
+
+    /**
+     * 1.找root -> p的路径
+     * 2.找root -> q的路径
+     * 3.找最后一个相交点
+     */
+    public TreeNode lowestCommonAncestorII(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || p == root || q == root) {
+            return root;
+        }
+
+        List<TreeNode> pPath = findPath(root, p);
+        List<TreeNode> qPath = findPath(root, q);
+
+        TreeNode common = null;
+        for (int i=0, j=0; i<pPath.size() && j<qPath.size(); i++,j++) {
+            if (pPath.get(i) == qPath.get(j)) {
+                common = pPath.get(i);
+            }
+        }
+
+        return common;
+    }
+
+    private List<TreeNode> findPath(TreeNode root, TreeNode node) {
+        List<TreeNode> path = new ArrayList<>();
+        dfs(root, node, new ArrayList<>(), path);
+        return path;
+    }
+
+    private void dfs(TreeNode root, TreeNode node, List<TreeNode> tmp, List<TreeNode> path) {
+        if (root == null) {
+            return;
+        }
+
+        tmp.add(root);
+
+        if (root == node) {
+            path.addAll(new ArrayList<>(tmp));
+        }
+
+        dfs(root.left, node, tmp, path);
+        dfs(root.right, node, tmp, path);
+
+        tmp.remove(tmp.size()-1);
     }
 }
